@@ -1,8 +1,6 @@
-Name: Syeda Maria Rasheed
-EP1750095
+
 Title: Computer Project
-Chapter 7
-Question 10
+
 {
     class Program
     {
