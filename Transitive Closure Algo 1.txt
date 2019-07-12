@@ -1,5 +1,4 @@
-Chapter 7
-Question 12
+
 Transitive Closure through Algo 1
     class Program
     {
