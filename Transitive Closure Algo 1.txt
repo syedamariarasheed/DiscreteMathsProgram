@@ -1,0 +1,87 @@
+Chapter 7
+Question 12
+Transitive Closure through Algo 1
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int order, i, j,k;
+            Console.WriteLine("Enter The Order of Matrix");
+            order = int.Parse(Console.ReadLine());
+            int[,] fixedarray= new int[order,order];
+            int[,] array2 = new int[order, order];
+            int[,] array3 = new int[order, order];
+            int[,] closure = new int[order, order];
+            //Input Rows
+            for (i=0;i<order;i++)
+            {
+                for (j=0;j<order;j++)
+                {
+                    fixedarray[i, j] = Convert.ToInt16(Console.ReadLine());
+                }
+                Console.WriteLine("\n");
+            }
+            //Display
+            for (i = 0; i < order; i++)
+            {
+                for (j = 0; j < order; j++)
+                {
+                    Console.Write("{0} \t",fixedarray[i, j]); 
+                }
+               Console.WriteLine("\n");
+            }
+            for (i = 0; i < order; i++)
+            {
+                for (j = 0; j < order; j++)
+                {
+                    array2[i, j] = fixedarray[i, j];
+                }
+            }
+            for (int h = 1; h < order; h++)
+            {
+                for (i = 0; i < order; i++)
+                {
+                    for (j = 0; j < order; j++)
+                    {
+                        int Var = 0;
+                        for (k = 0; k < order; k++)
+                        {
+                            if(array2[i,k]  == 1 && fixedarray[k,j] == 1)
+                            {
+                                Var = 1;
+                            }
+                           
+                        }
+                        array3[i, j] = Var;
+                    }
+                }
+                // Taking M*R for closure
+                for (i = 0; i < order; i++)
+                {
+                    for (j = 0; j < order; j++)
+                    {   if (array2[i, j] == 1 || array3[i, j] == 1)
+                        {
+                            closure[i, j] = 1;
+                        } }
+                }
+                // Store New Matrix into array2 in order to taking Boolean Product between new and fixed matrix.
+                for (i = 0; i < order; i++)
+                {
+                    for (j = 0; j < order; j++)
+                    {
+                        array2[i, j] = array3[i, j];
+                    }
+                }
+            }
+            for (i = 0; i < order; i++)
+            {
+                for (j = 0; j < order; j++)
+                {
+                    Console.Write("{0} \t", closure[i, j]);
+                }
+                Console.WriteLine("\n");
+            }
+            Console.ReadKey();
+        }
+    }
+}

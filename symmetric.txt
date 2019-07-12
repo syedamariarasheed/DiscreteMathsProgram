@@ -1,0 +1,68 @@
+Chapter 7
+Question 11
+
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int order, i,j,count=0;
+            Console.WriteLine("Enter The Order of Matrix");
+            order = int.Parse(Console.ReadLine());
+            int[,] array= new int[order,order];
+         
+            
+            for (i=0;i<order;i++)
+            {
+                for (j=0;j<order;j++)
+                {
+                    array[i, j] = Convert.ToInt16(Console.ReadLine());
+                    
+                }
+                Console.WriteLine("\n");
+            }
+
+            for (i = 0; i < order; i++)
+            {
+                for (j = 0; j < order; j++)
+                {
+
+                    Console.Write("{0} \t",array[i, j]); 
+                   
+                }
+                Console.WriteLine("\n");
+            }
+
+
+            for (i = 0; i < order; i++)
+            {
+                for (j = 0; j < order; j++)
+                {
+
+                    if (j != i)
+                    {
+                        if (array[i, j] == array[j, i])
+                        {
+                            count++;
+                            
+                        }
+                    }
+                }
+                Console.WriteLine("\n");
+
+            }
+
+            int check = order * (order - 1);
+            if(check == count)
+            {
+                Console.WriteLine("Yes, It is symmetric");
+            }
+            else
+            {
+                Console.WriteLine("No, It is not symmetric");
+            }
+           
+            Console.ReadKey();
+        }
+
+    }
+}

@@ -1,0 +1,57 @@
+Name: Syeda Maria Rasheed
+EP1750095
+Title: Computer Project
+Chapter 7
+Question 10
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int order, i,j,count=0;
+            Console.WriteLine("Enter The Order of Matrix");
+            order = int.Parse(Console.ReadLine());
+            int[,] array= new int[order,order];
+         
+            
+            for (i=0;i<order;i++)
+            {
+                for (j=0;j<order;j++)
+                {
+                    array[i, j] = Convert.ToInt16(Console.ReadLine());
+                    if (i == j)
+                    {
+                        if (array[i, j] == 1)
+                        {
+
+                            count++;
+                        }
+                    }
+                 
+                }
+                Console.WriteLine("\n");
+            }
+
+            for (i = 0; i < order; i++)
+            {
+                for (j = 0; j < order; j++)
+                {
+                    Console.Write("{0} \t",array[i, j]); 
+                   
+                }
+                Console.WriteLine("\n");
+            }
+
+            if (count == order)
+            {
+                Console.WriteLine("Yes, It is Reflexive");
+            }
+            else
+            {
+                Console.WriteLine("No, It is not Reflexive");
+            }
+            Console.ReadKey();
+        }
+
+    }
+}

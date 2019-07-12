@@ -1,0 +1,70 @@
+Chapter 7
+Question 13 
+Transitive Closure Through Warshall's Algorithm
+
+static void Main(string[] args)
+        {
+            int order, i, j,intermediate=0;
+            Console.WriteLine("Enter The Order of Matrix");
+            order = int.Parse(Console.ReadLine());
+            int[,] fixedarray= new int[order,order];
+            int[,] array2 = new int[order, order];
+            int[,] array3 = new int[order, order];
+            int[,] closure = new int[order, order];
+            //Input Rows
+            for (i=0;i<order;i++)
+            {
+                for (j=0;j<order;j++)
+                {
+                    fixedarray[i, j] = Convert.ToInt16(Console.ReadLine());
+                }
+                Console.WriteLine("\n");
+            }
+            void printimg()
+            {
+                for (i = 0; i < order; i++)
+                {
+                    for (j = 0; j < order; j++)
+                    {
+                        Console.Write("{0} \t", fixedarray[i, j]);
+                    }
+                    Console.WriteLine("\n");
+                }
+            }
+            void Warshall()
+            {
+                for (i = 0; i < order; i++)
+                {
+                    for (j = 0; j < order; j++)
+                    {
+                        if (fixedarray[i, intermediate] == 1 && fixedarray[intermediate, j] == 1)
+                        {
+                            fixedarray[i, j] = 1;
+                        }
+                    }
+                }
+            }
+            //Display
+            Console.WriteLine("W0 =");
+            printimg();
+            Warshall();
+                //Print W1
+            Console.WriteLine("W1 =");
+            printimg();
+            intermediate++;
+            Warshall();
+            //Print W2
+            Console.WriteLine("W2 =");
+            printimg();
+            intermediate++;
+            Warshall();
+            //Print W3
+            Console.WriteLine("W3 =");
+            printimg();
+            intermediate++;
+            Warshall();
+            //Print W4
+            Console.WriteLine("W4 =");
+            printimg();
+            Console.ReadKey();
+        }
